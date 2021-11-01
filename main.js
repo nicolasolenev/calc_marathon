@@ -1,16 +1,15 @@
-//  Калькулятор
 function calc(operation, a, b) {
 
-  function checkIsWrongNumber(a) {
+  function checkIncorrectValue(a) {
     return typeof a !== 'number' || !isFinite(a);
   }
 
-  const isUnvalidNumber = checkIsWrongNumber(a) || checkIsWrongNumber(b);
-  const checkDivByZero = (operation === 'div' || operation === 'rem') && b === 0;
+  const isIncorrectValue = checkIncorrectValue(a) || checkIncorrectValue(b);
+  const checkDivisionByZero = (operation === 'div' || operation === 'rem') && b === 0;
 
-  if (isUnvalidNumber) {
+  if (isIncorrectValue) {
     return 'Error';
-  } else if (checkDivByZero) {
+  } else if (checkDivisionByZero) {
     return 'На ноль делить нельзя';
   } else if (operation === 'sum') {
     return a + b;
@@ -28,6 +27,3 @@ function calc(operation, a, b) {
     return 'unknown operation';
   }
 }
-
-const answer = calc('div', 123, 321);
-console.log(answer);
