@@ -9,7 +9,7 @@ function calc(operation, a, b) {
 
   if (isUnvalidNumber) {
     return 'Error';
-  } else if (b == 0 && a === 0 || b === 0) {
+  } else if (operation === 'div' || operation === 'rem' && a === 0 || b === 0) {
     return 'На ноль делить нельзя';
   } else if (operation = 'sum') {
     return a + b;
@@ -28,5 +28,5 @@ function calc(operation, a, b) {
   }
 }
 
-const answer = calc('div', 10, 3);
+const answer = calc('sum', 10, 0);
 console.log(answer);
