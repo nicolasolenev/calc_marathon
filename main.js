@@ -7,10 +7,8 @@ function calc(operation, a, b) {
   const isIncorrectValue = checkIncorrectValue(a) || checkIncorrectValue(b);
   const checkDivisionByZero = (operation === 'div' || operation === 'rem') && b === 0;
 
-  if (isIncorrectValue) {
+  if (isIncorrectValue || checkDivisionByZero) {
     return 'Error';
-  } else if (checkDivisionByZero) {
-    return 'На ноль делить нельзя';
   } else if (operation === 'sum') {
     return a + b;
   } else if (operation === 'dif') {
