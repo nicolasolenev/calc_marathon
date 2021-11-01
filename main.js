@@ -6,27 +6,28 @@ function calc(operation, a, b) {
   }
 
   const isUnvalidNumber = checkIsWrongNumber(a) || checkIsWrongNumber(b);
+  const checkDivByZero = (operation === 'div' || operation === 'rem') && b === 0;
 
   if (isUnvalidNumber) {
     return 'Error';
-  } else if (operation === 'div' || operation === 'rem' && a === 0 || b === 0) {
+  } else if (checkDivByZero) {
     return 'На ноль делить нельзя';
-  } else if (operation = 'sum') {
+  } else if (operation === 'sum') {
     return a + b;
-  } else if (operation = 'dif') {
+  } else if (operation === 'dif') {
     return a - b;
-  } else if (operation = 'multi') {
+  } else if (operation === 'multi') {
     return a * b;
-  } else if (operation = 'div') {
+  } else if (operation === 'div') {
     return a / b;
-  } else if (operation = 'rem') {
+  } else if (operation === 'rem') {
     return a % b;
-  } else if (operation = 'exp') {
+  } else if (operation === 'exp') {
     return a ** b;
   } else {
     return 'unknown operation';
   }
 }
 
-const answer = calc('sum', 10, 0);
+const answer = calc('div', 123, 321);
 console.log(answer);
