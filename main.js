@@ -1,7 +1,7 @@
 const calc = (operation, a, b) => {
 
-  const checkIncorrectValue = a => typeof a !== 'number' || !isFinite(a);
-  const isIncorrectValue = checkIncorrectValue(a) || checkIncorrectValue(b);
+  const checkValue = num => typeof num !== 'number' || !isFinite(num);
+  const isIncorrectValue = checkValue(a) || checkValue(b);
   const checkDivisionByZero = (operation === 'div' || operation === 'rem') && b === 0;
 
   if (isIncorrectValue || checkDivisionByZero) {
