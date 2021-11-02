@@ -1,9 +1,6 @@
-function calc(operation, a, b) {
+const calc = (operation, a, b) => {
 
-  function checkIncorrectValue(a) {
-    return typeof a !== 'number' || !isFinite(a);
-  }
-
+  const checkIncorrectValue = a => typeof a !== 'number' || !isFinite(a);
   const isIncorrectValue = checkIncorrectValue(a) || checkIncorrectValue(b);
   const checkDivisionByZero = (operation === 'div' || operation === 'rem') && b === 0;
 
@@ -27,4 +24,5 @@ function calc(operation, a, b) {
     default:
       return 'unknown operation';
   }
+
 }
