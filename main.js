@@ -9,19 +9,22 @@ function calc(operation, a, b) {
 
   if (isIncorrectValue || checkDivisionByZero) {
     return 'Error';
-  } else if (operation === 'sum') {
-    return a + b;
-  } else if (operation === 'dif') {
-    return a - b;
-  } else if (operation === 'multi') {
-    return a * b;
-  } else if (operation === 'div') {
-    return a / b;
-  } else if (operation === 'rem') {
-    return a % b;
-  } else if (operation === 'exp') {
-    return a ** b;
-  } else {
-    return 'unknown operation';
+  }
+
+  switch (operation) {
+    case 'sum':
+      return a + b;
+    case 'dif':
+      return a - b;
+    case 'multi':
+      return a * b;
+    case 'div':
+      return a / b;
+    case 'rem':
+      return a % b;
+    case 'exp':
+      return a ** b;
+    default:
+      return 'unknown operation';
   }
 }
