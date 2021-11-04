@@ -6,8 +6,9 @@ const calc = (operation, a, b) => {
     div: (c, d) => c / d
   };
 
-  if (b === undefined) return "Error";
-  else if (!(operation in operations)) return "unknown operation";
+  if (operation === undefined || a === undefined || b === undefined) {
+    return "Error";
+  } else if (!(operation in operations)) return "unknown operation";
 
   const answer = operations[operation](a, b);
   if (!isFinite(answer)) return "Error";
