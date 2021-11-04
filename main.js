@@ -5,13 +5,11 @@ const calc = (operation, a, b) => {
     mult: (c, d) => c * d,
     div: (c, d) => c / d
   };
-  console.log(operations);
 
-  if (!(operation in operations)) return "unknown operation"; // Если операция не существует
+  if (b === undefined) return "Error";
+  else if (!(operation in operations)) return "unknown operation";
 
-  const answer = operations[operation](a, b); // Произвести вычисление
-
-  if (!isFinite(answer)) return "Error"; // Если ответ не является числом
-
+  const answer = operations[operation](a, b);
+  if (!isFinite(answer)) return "Error";
   return answer;
 };
