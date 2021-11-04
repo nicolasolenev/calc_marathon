@@ -1,4 +1,7 @@
 const calc = (operation, a, b) => {
+  if (operation === undefined || a === undefined || b === undefined)
+    return "Error";
+
   const operations = {
     sum: () => +a + +b,
     sub: () => a - b,
@@ -6,13 +9,12 @@ const calc = (operation, a, b) => {
     div: () => a / b
   };
 
-  if (operation === undefined || a === undefined || b === undefined) {
-    return "Error";
-  } else if (!(operation in operations)) return "unknown operation";
+  if (!(operation in operations)) return "unknown operation";
 
-  const answer = operations[operation]();
+  const result = operations[operation]();
 
-  if (!isFinite(answer)) return "Error";
-
-  return answer;
+  return isFinite(result) ? result : "Error";
 };
+
+// const callFunc = calc("sum", 3, 39);
+// console.log(callFunc);
