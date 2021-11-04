@@ -1,28 +1,21 @@
 const calc = (operation, a, b) => {
-
-  const checkValue = num => typeof num !== 'number' || !isFinite(num);
+  const checkValue = num => typeof num !== "number" || !isFinite(num);
   const isIncorrectValue = checkValue(a) || checkValue(b);
-  const checkDivisionByZero = (operation === 'div' || operation === 'rem') && b === 0;
+  const checkDivisionByZero = (operation === "div" || operation === "rem") && b === 0;
+  const operations = {
+    sum: (a, b) => a + b,
+    sub: (a, b) => a - b,
+    mult: (a, b) => a * b,
+    div: (a, b) => a / b,
+  };
 
   if (isIncorrectValue || checkDivisionByZero) {
-    return 'Error';
+    return "Error";
   }
 
-  switch (operation) {
-    case 'sum':
-      return a + b;
-    case 'dif':
-      return a - b;
-    case 'multi':
-      return a * b;
-    case 'div':
-      return a / b;
-    case 'rem':
-      return a % b;
-    case 'exp':
-      return a ** b;
-    default:
-      return 'unknown operation';
+  if (!(operation in operations)) {
+    return 'unknown operation'
   }
 
-}
+  return operations[operation](a, b);
+};
