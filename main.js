@@ -6,11 +6,11 @@ const calc = (operation, a, b) => {
     div: (a, b) => a / b,
   };
 
-  if (!(operation in operations)) return 'unknown operation';
+  if (!(operation in operations)) return 'unknown operation'; // Если операция не существует
 
-  const answer = operations[operation](a, b);
+  const answer = operations[operation](a, b); // Произвести вычисление
 
-  if (!isFinite(answer)) return "Error";
+  if (!isFinite(answer)) return "Error"; // Если ответ не является числом
 
   return answer;
 };
