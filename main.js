@@ -1,16 +1,18 @@
 const calc = (operation, a, b) => {
   const operations = {
-    sum: (c, d) => +c + +d,
-    sub: (c, d) => c - d,
-    mult: (c, d) => c * d,
-    div: (c, d) => c / d
+    sum: () => +a + +b,
+    sub: () => a - b,
+    mult: () => a * b,
+    div: () => a / b
   };
 
   if (operation === undefined || a === undefined || b === undefined) {
     return "Error";
   } else if (!(operation in operations)) return "unknown operation";
 
-  const answer = operations[operation](a, b);
+  const answer = operations[operation]();
+
   if (!isFinite(answer)) return "Error";
+
   return answer;
 };
